@@ -6,13 +6,14 @@ feature when using `ComponentDependencyMiddleware` and setting
 
 ## Usage
 
-1. Create venv `python3.12 -m venv venv`
+1. Create venv `python3.14 -m venv venv`
 2. Start venv: `source venv/bin/activate`
-3. Start django: `cd myproject`
-4. `python manage.py runserver`
-5. Go to 'localhost:8000' and you will see rendering of component located
+3. Install requirements: `pip install -r requirements.txt`
+4. Start django: `cd myproject`
+5. `python manage.py runserver`
+6. Go to 'localhost:8000' and you will see rendering of component located
    `myproject/components/test_component`
-6. If you click link "Click to see error" you will see exception that component named "MagicComponent" is not found
+7. If you click link "Click to see error" you will see exception that component named "MagicComponent" is not found
 
 ## Expected behaviour
 

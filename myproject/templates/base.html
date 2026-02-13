@@ -1,3 +1,12 @@
 {% load component_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1>Old bug</h1>
 {% component "test_component" argument="simple load" / %}
 <a href="{% url "magic_component_name" %}">Click to see error</a>
+<h1>New Bug</h1>
+{% component "test_component2" argument="Initial data" / %}
+<a href="{% url "magic2_component_name" %}?with_magic=true">Click to see error</a>
+</body>
+</html>

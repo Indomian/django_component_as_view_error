@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     "django_components",
-    "django_components.safer_staticfiles",
 ]
 
 MIDDLEWARE = [
@@ -48,7 +47,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_components.middleware.ComponentDependencyMiddleware",
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -134,11 +132,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 COMPONENTS = {
-    "RENDER_DEPENDENCIES": True,
-    "autodiscover": False,
-    "slot_context_behavior": "prefer_root",
     "context_behavior": "django",
-    "libraries": [
-        "components.test_component.component",
-    ],
+    "reload_on_file_change": DEBUG,
+    "dirs": [BASE_DIR / "components"],
 }

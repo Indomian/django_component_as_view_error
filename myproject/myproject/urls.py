@@ -14,18 +14,32 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django_components import ComponentView
 
 from components.test_component.component import MagicComponent
+from components.test_on_render_htmx.component import Magic2Component
 from .views import index
 
+component = MagicComponent(
+    registered_name="test_component"
+)
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', index),
     path(
         'magic/',
+        # ComponentView.as_view(
+        #     component=component
+        # ),
         MagicComponent.as_view(),
         name="magic_component_name"
-    )
+    ),
+    path(
+        'magic2/',
+        Magic2Component.as_view(),
+        name="magic2_component_name"
+    ),
+    path("", include("django_components.urls")),
 ]
